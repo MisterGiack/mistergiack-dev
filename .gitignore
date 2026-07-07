@@ -1,2 +1,8 @@
 *.ps1
 .claude/
+
+# ruflo/superpowers residues
+ruvector.db
+.swarm/
+.superpowers/
+.claude-flow/
