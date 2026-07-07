@@ -1,130 +1,439 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Il mio primo sito su VPS</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Giacomo — developer & AI builder. Trasformo idee in prodotti digitali."/>
+  <title>MisterGiack — Dev & AI Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="nav-inner">
-      <span class="nav-logo">&#x2601; MyVPS</span>
-      <ul class="nav-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#contact">Contatti</a></li>
+  <!-- Noise overlay -->
+  <div class="noise"></div>
+
+  <!-- Gradient orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="nav" id="nav">
+    <div class="nav-wrap">
+      <a href="#" class="nav-logo">
+        <span class="logo-gem">◆</span>
+        <span>MisterGiack</span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="#work">Lavori</a></li>
+        <li><a href="#services">Servizi</a></li>
+        <li><a href="#about">Chi sono</a></li>
+        <li><a href="#contact" class="nav-btn">Parliamo →</a></li>
       </ul>
+      <button class="hamburger" onclick="toggleNav()" aria-label="menu">
+        <span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-drawer" id="drawer">
+      <a href="#work" onclick="toggleNav()">Lavori</a>
+      <a href="#services" onclick="toggleNav()">Servizi</a>
+      <a href="#about" onclick="toggleNav()">Chi sono</a>
+      <a href="#contact" onclick="toggleNav()">Parliamo</a>
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- ===================== HERO ===================== -->
   <section class="hero" id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <div class="badge">Deployed on VPS</div>
-      <h1>Il mio primo sito<br><span class="gradient-text">su VPS</span></h1>
-      <p class="hero-sub">Hosting autonomo, pieno controllo, prestazioni reali.<br>Benvenuto nel mio angolo del web.</p>
-      <div class="hero-actions">
-        <a href="#features" class="btn btn-primary">Scopri di più</a>
-        <a href="#contact" class="btn btn-ghost">Contattami</a>
+    <div class="hero-inner">
+      <div class="hero-tag">
+        <span class="pulse"></span>
+        Disponibile per nuovi progetti
+      </div>
+      <h1 class="hero-title">
+        <span class="line" data-text="Costruisco">Costruisco</span>
+        <span class="line accent-line">
+          <em>prodotti</em>
+          <svg class="title-deco" viewBox="0 0 120 14" fill="none"><path d="M2 12 C30 2, 90 2, 118 12" stroke="url(#sg)" stroke-width="3" stroke-linecap="round"/><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#ff6b35"/><stop offset="60%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#ffe066"/></linearGradient></defs></svg>
+        </span>
+        <span class="line">digitali</span>
+      </h1>
+      <p class="hero-sub">
+        Web app, strumenti AI e automazioni su misura.<br>
+        Dal concept al deploy — veloce, solido, bello.
+      </p>
+      <div class="hero-cta">
+        <a href="#work" class="cta-primary">Vedi i progetti <span>↓</span></a>
+        <a href="#contact" class="cta-ghost">Contattami</a>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="terminal">
-        <div class="terminal-bar">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
-          <span class="terminal-title">bash</span>
+
+    <!-- Floating stats -->
+    <div class="hero-stats">
+      <div class="hstat">
+        <span class="hstat-n" data-target="100">0</span><span>%</span>
+        <span class="hstat-l">Self-hosted</span>
+      </div>
+      <div class="hstat-div"></div>
+      <div class="hstat">
+        <span class="hstat-n" data-target="24">0</span><span>h</span>
+        <span class="hstat-l">Risposta garantita</span>
+      </div>
+      <div class="hstat-div"></div>
+      <div class="hstat">
+        <span class="hstat-n" data-target="3">0</span><span>+</span>
+        <span class="hstat-l">App in produzione</span>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-line"><div class="scroll-dot"></div></div>
+    </div>
+  </section>
+
+  <!-- ===================== MARQUEE ===================== -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <div class="marquee-inner" id="marqueeInner">
+        <span>React</span><span class="sep">·</span>
+        <span>TypeScript</span><span class="sep">·</span>
+        <span>Supabase</span><span class="sep">·</span>
+        <span>Claude AI</span><span class="sep">·</span>
+        <span>Vite</span><span class="sep">·</span>
+        <span>PostgreSQL</span><span class="sep">·</span>
+        <span>Nginx</span><span class="sep">·</span>
+        <span>GitHub Actions</span><span class="sep">·</span>
+        <span>Tailwind CSS</span><span class="sep">·</span>
+        <span>Node.js</span><span class="sep">·</span>
+        <span>VPS & DevOps</span><span class="sep">·</span>
+        <span>LLM Integration</span><span class="sep">·</span>
+        <span>REST API</span><span class="sep">·</span>
+        <span>React</span><span class="sep">·</span>
+        <span>TypeScript</span><span class="sep">·</span>
+        <span>Supabase</span><span class="sep">·</span>
+        <span>Claude AI</span><span class="sep">·</span>
+        <span>Vite</span><span class="sep">·</span>
+        <span>PostgreSQL</span><span class="sep">·</span>
+        <span>Nginx</span><span class="sep">·</span>
+        <span>GitHub Actions</span><span class="sep">·</span>
+        <span>Tailwind CSS</span><span class="sep">·</span>
+        <span>Node.js</span><span class="sep">·</span>
+        <span>VPS & DevOps</span><span class="sep">·</span>
+        <span>LLM Integration</span><span class="sep">·</span>
+        <span>REST API</span><span class="sep">·</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== WORK / BENTO ===================== -->
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">// 01 — Progetti</span>
+        <h2 class="section-title">Cosa ho costruito</h2>
+      </div>
+
+      <div class="bento">
+
+        <!-- Featured: Trading Journal -->
+        <a href="https://journal.mistergiack.dev" target="_blank" rel="noopener" class="bcard bcard--lg reveal">
+          <div class="bcard-bg" style="background: linear-gradient(135deg,#1a0a2e,#0d1a2e)"></div>
+          <div class="bcard-glow" style="background:radial-gradient(circle at 70% 30%, rgba(124,58,237,0.25), transparent 60%)"></div>
+          <div class="bcard-inner">
+            <div class="bcard-top">
+              <span class="bcard-status live">● Live</span>
+              <span class="bcard-arrow">↗</span>
+            </div>
+            <div class="bcard-icon">📈</div>
+            <h3>Trading Journal</h3>
+            <p>Registra ogni operazione, analizza le statistiche, misura il tuo edge. Win rate, drawdown, report PDF e dashboard personalizzabile in tempo reale.</p>
+            <div class="bcard-tags">
+              <span>React</span><span>Supabase</span><span>Analytics</span><span>Fintech</span>
+            </div>
+            <div class="bcard-url">journal.mistergiack.dev</div>
+          </div>
+        </a>
+
+        <!-- MisterGiack Apps -->
+        <a href="https://app.mistergiack.dev" target="_blank" rel="noopener" class="bcard bcard--md reveal">
+          <div class="bcard-bg" style="background: linear-gradient(135deg,#0d1117,#101020)"></div>
+          <div class="bcard-glow" style="background:radial-gradient(circle at 30% 70%, rgba(6,182,212,0.2), transparent 60%)"></div>
+          <div class="bcard-inner">
+            <div class="bcard-top">
+              <span class="bcard-status live">● Live</span>
+              <span class="bcard-arrow">↗</span>
+            </div>
+            <div class="bcard-icon">◆</div>
+            <h3>MisterGiack Apps</h3>
+            <p>Hub centrale di tutte le applicazioni. Una vetrina con accesso diretto ad ogni strumento.</p>
+            <div class="bcard-tags">
+              <span>HTML/CSS</span><span>VPS</span><span>Design</span>
+            </div>
+            <div class="bcard-url">app.mistergiack.dev</div>
+          </div>
+        </a>
+
+        <!-- Stats card -->
+        <div class="bcard bcard--sm bcard--stat reveal">
+          <div class="bcard-bg" style="background:linear-gradient(135deg,#0f0f0f,#161616)"></div>
+          <div class="bcard-inner">
+            <div class="big-num">3+</div>
+            <p>App live in produzione su VPS dedicato</p>
+          </div>
         </div>
-        <div class="terminal-body">
-          <p><span class="prompt">user@vps:~$</span> nginx -v</p>
-          <p class="out">nginx version: nginx/1.26.0</p>
-          <p><span class="prompt">user@vps:~$</span> systemctl status nginx</p>
-          <p class="out green-text">&#x25CF; nginx is <strong>active (running)</strong></p>
-          <p><span class="prompt">user@vps:~$</span> uptime</p>
-          <p class="out">up 42 days, 7:12, load avg: 0.05</p>
-          <p><span class="prompt">user@vps:~$</span> <span class="blink">_</span></p>
+
+        <!-- AI Assistant -->
+        <div class="bcard bcard--md bcard--soon reveal">
+          <div class="bcard-bg" style="background:linear-gradient(135deg,#0f0f0f,#161616)"></div>
+          <div class="bcard-inner">
+            <div class="bcard-top">
+              <span class="bcard-status wip">◐ In sviluppo</span>
+            </div>
+            <div class="bcard-icon muted">🤖</div>
+            <h3 class="muted">AI Assistant</h3>
+            <p class="muted">Assistente personalizzato con memoria a lungo termine e workflow su misura per il tuo business.</p>
+            <div class="bcard-tags dim">
+              <span>Claude API</span><span>AI</span><span>Automation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech card -->
+        <div class="bcard bcard--sm bcard--tech reveal">
+          <div class="bcard-bg" style="background:linear-gradient(135deg,#0f0a1e,#0a0f1e)"></div>
+          <div class="bcard-glow" style="background:radial-gradient(circle at 50% 50%, rgba(124,58,237,0.15), transparent 70%)"></div>
+          <div class="bcard-inner">
+            <div class="tech-grid">
+              <span>⚡</span><span>🗄</span>
+              <span>🤖</span><span>🚀</span>
+            </div>
+            <p>Full-stack, AI-powered, self-hosted</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section class="section section--dark" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">// 02 — Servizi</span>
+        <h2 class="section-title">Cosa posso fare per te</h2>
+        <p class="section-sub">Ogni progetto è unico. Lavoro con te dall'idea iniziale al prodotto finale.</p>
+      </div>
+
+      <div class="services-list">
+
+        <div class="svc reveal" data-n="01">
+          <div class="svc-left">
+            <span class="svc-num">01</span>
+            <div>
+              <h3>Sviluppo Web App</h3>
+              <p>Applicazioni moderne, veloci e scalabili. Dashboard, SaaS, gestionali e tool interni costruiti con React e TypeScript.</p>
+            </div>
+          </div>
+          <div class="svc-tags">
+            <span>React</span><span>TypeScript</span><span>Vite</span><span>Tailwind</span>
+          </div>
+        </div>
+
+        <div class="svc reveal" data-n="02">
+          <div class="svc-left">
+            <span class="svc-num">02</span>
+            <div>
+              <h3>Integrazione AI & LLM</h3>
+              <p>Porto l'intelligenza artificiale nei tuoi strumenti. Chatbot, analisi automatica, generazione contenuti, automazioni intelligenti con Claude e OpenAI.</p>
+            </div>
+          </div>
+          <div class="svc-tags">
+            <span>Claude API</span><span>OpenAI</span><span>Automazioni</span>
+          </div>
+        </div>
+
+        <div class="svc reveal" data-n="03">
+          <div class="svc-left">
+            <span class="svc-num">03</span>
+            <div>
+              <h3>Fintech & Trading Tools</h3>
+              <p>Strumenti professionali per trader. Journal avanzati, market scanner, dashboard di portafoglio e report con dati in tempo reale.</p>
+            </div>
+          </div>
+          <div class="svc-tags">
+            <span>Fintech</span><span>Analytics</span><span>Real-time</span>
+          </div>
+        </div>
+
+        <div class="svc reveal" data-n="04">
+          <div class="svc-left">
+            <span class="svc-num">04</span>
+            <div>
+              <h3>Backend & Database</h3>
+              <p>Architetture solide con Supabase e PostgreSQL. Autenticazione, storage, API REST, realtime e Row Level Security configurati correttamente.</p>
+            </div>
+          </div>
+          <div class="svc-tags">
+            <span>Supabase</span><span>PostgreSQL</span><span>REST API</span>
+          </div>
+        </div>
+
+        <div class="svc reveal" data-n="05">
+          <div class="svc-left">
+            <span class="svc-num">05</span>
+            <div>
+              <h3>DevOps & Deploy</h3>
+              <p>VPS, Nginx, SSL, CI/CD con GitHub Actions. Il tuo progetto online in modo sicuro e automatico — ogni push in produzione senza sforzo.</p>
+            </div>
+          </div>
+          <div class="svc-tags">
+            <span>VPS</span><span>Nginx</span><span>GitHub Actions</span><span>SSL</span>
+          </div>
+        </div>
+
+        <div class="svc reveal" data-n="06">
+          <div class="svc-left">
+            <span class="svc-num">06</span>
+            <div>
+              <h3>MVP Rapido</h3>
+              <p>Hai un'idea e vuoi validarla velocemente? Costruisco prototipi funzionanti pronti al mercato, iterando rapidamente sul feedback reale.</p>
+            </div>
+          </div>
+          <div class="svc-tags">
+            <span>Startup</span><span>Prototipo</span><span>Veloce</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-left reveal">
+          <span class="label">// 03 — Chi sono</span>
+          <h2 class="about-title">Builder.<br>Problem solver.<br><em>Appassionato.</em></h2>
+          <div class="about-deco">◆◆◆</div>
+        </div>
+        <div class="about-right reveal">
+          <p class="about-lead">Sviluppo prodotti digitali con un focus su semplicità, performance e utilità concreta.</p>
+          <p>Mi occupo di tutto il ciclo di vita di un progetto: dall'idea alla messa online, passando per UI, backend e automazioni. Lavoro principalmente con <strong>React</strong>, <strong>TypeScript</strong> e <strong>Supabase</strong>, integrando modelli AI per costruire strumenti che risolvono problemi reali.</p>
+          <p>Ogni app che costruisco gira su un <strong>VPS dedicato</strong> che gestisco direttamente — controllo totale su performance, sicurezza e costi.</p>
+          <div class="about-badges">
+            <span>⚡ Frontend avanzato</span>
+            <span>🗄 Backend solido</span>
+            <span>🤖 AI nativo</span>
+            <span>🚀 Deploy autonomo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Big stats row -->
+      <div class="stats-row">
+        <div class="big-stat reveal">
+          <span class="bsn" data-target="100">0</span><span class="bsu">%</span>
+          <span class="bsl">Progetti self-hosted</span>
+        </div>
+        <div class="big-stat reveal">
+          <span class="bsn" data-target="3">0</span><span class="bsu">+</span>
+          <span class="bsl">App in produzione</span>
+        </div>
+        <div class="big-stat reveal">
+          <span class="bsn" data-target="24">0</span><span class="bsu">h</span>
+          <span class="bsl">Risposta garantita</span>
+        </div>
+        <div class="big-stat reveal">
+          <span class="bsn" data-target="99">0</span><span class="bsu">%</span>
+          <span class="bsl">Uptime garantito</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Features -->
-  <section class="features" id="features">
-    <div class="container">
-      <h2 class="section-title">Perché un VPS?</h2>
-      <p class="section-sub">Indipendenza, potenza e flessibilità al costo di un caffè al giorno.</p>
-      <div class="cards">
-        <div class="card">
-          <div class="card-icon">&#x26A1;</div>
-          <h3>Performance</h3>
-          <p>Risorse dedicate per garantire tempi di risposta fulminei e zero condivisione con altri utenti.</p>
+  <!-- ===================== CONTACT ===================== -->
+  <section class="section contact-section" id="contact">
+    <div class="wrap">
+      <div class="contact-hero reveal">
+        <span class="label">// 04 — Contatti</span>
+        <h2 class="contact-big">Hai un'idea?<br><span class="gradient-text">Costruiamola.</span></h2>
+        <p>Raccontami il tuo progetto — rispondo entro 24 ore.</p>
+      </div>
+
+      <div class="contact-layout">
+        <div class="contact-info reveal">
+          <div class="cinfo-item">
+            <span class="cinfo-label">Posizione</span>
+            <span class="cinfo-val">Italia 🇮🇹</span>
+          </div>
+          <div class="cinfo-item">
+            <span class="cinfo-label">Disponibilità</span>
+            <span class="cinfo-val">● Aperto a nuovi progetti</span>
+          </div>
+          <div class="cinfo-item">
+            <span class="cinfo-label">Risposta</span>
+            <span class="cinfo-val">Entro 24 ore</span>
+          </div>
+          <div class="cinfo-item">
+            <span class="cinfo-label">GitHub</span>
+            <a href="https://github.com/MisterGiackCodex" target="_blank" rel="noopener" class="cinfo-val cinfo-link">MisterGiackCodex ↗</a>
+          </div>
         </div>
-        <div class="card">
-          <div class="card-icon">&#x1F512;</div>
-          <h3>Sicurezza</h3>
-          <p>Configurazione firewall personalizzata, certificati SSL e accesso SSH con chiave pubblica.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">&#x1F527;</div>
-          <h3>Controllo totale</h3>
-          <p>Root access completo. Installa qualsiasi software, configura ogni dettaglio del server.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">&#x1F4CA;</div>
-          <h3>Scalabilità</h3>
-          <p>Aumenta RAM, CPU e storage in pochi click senza migrare i dati o cambiare provider.</p>
-        </div>
+
+        <form class="contact-form reveal" id="contactForm">
+          <div class="cf-row">
+            <div class="cf-group">
+              <label>Nome</label>
+              <input type="text" name="name" placeholder="Il tuo nome" required/>
+            </div>
+            <div class="cf-group">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="tua@email.com" required/>
+            </div>
+          </div>
+          <div class="cf-group">
+            <label>Servizio</label>
+            <select name="service">
+              <option value="">Seleziona un servizio...</option>
+              <option>Sviluppo Web App</option>
+              <option>Integrazione AI</option>
+              <option>Fintech & Trading Tools</option>
+              <option>DevOps & Deploy</option>
+              <option>Backend & Database</option>
+              <option>MVP Rapido</option>
+              <option>Altro</option>
+            </select>
+          </div>
+          <div class="cf-group">
+            <label>Messaggio</label>
+            <textarea name="message" rows="5" placeholder="Descrivi il tuo progetto o la tua idea..." required></textarea>
+          </div>
+          <button type="submit" class="cf-submit" id="cfSubmit">
+            <span id="cfText">Invia messaggio</span>
+            <span class="cf-arrow">→</span>
+          </button>
+          <div id="cfMsg" class="cf-msg"></div>
+        </form>
       </div>
     </div>
   </section>
 
-  <!-- Stats -->
-  <section class="stats">
-    <div class="container stats-grid">
-      <div class="stat">
-        <span class="stat-num">99.9%</span>
-        <span class="stat-label">Uptime garantito</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">&lt; 50ms</span>
-        <span class="stat-label">Latenza media</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">24/7</span>
-        <span class="stat-label">Monitoraggio attivo</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">SSL</span>
-        <span class="stat-label">Certificato attivo</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="contact" id="contact">
-    <div class="container contact-inner">
-      <h2 class="section-title">Parliamoci</h2>
-      <p class="section-sub">Hai un progetto in mente? Scrivimi, rispondo entro 24 ore.</p>
-      <form class="contact-form">
-        <div class="form-row">
-          <input type="text" placeholder="Il tuo nome" required />
-          <input type="email" placeholder="La tua email" required />
-        </div>
-        <textarea rows="5" placeholder="Il tuo messaggio..." required></textarea>
-        <button type="submit" class="btn btn-primary">Invia messaggio</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
+  <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
-    <p>Fatto con <span class="heart">&#x2665;</span> e hostato su VPS &mdash; &copy; 2026</p>
+    <div class="wrap footer-inner">
+      <a href="#hero" class="footer-logo">◆ MisterGiack</a>
+      <div class="footer-links">
+        <a href="https://app.mistergiack.dev" target="_blank" rel="noopener">Apps</a>
+        <a href="https://journal.mistergiack.dev" target="_blank" rel="noopener">Journal</a>
+        <a href="https://github.com/MisterGiackCodex" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <span class="footer-copy">© 2026 — mistergiack.dev</span>
+    </div>
   </footer>
 
+  <script src="main.js"></script>
 </body>
 </html>
